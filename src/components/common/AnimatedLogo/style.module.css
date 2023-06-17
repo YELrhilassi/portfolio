@@ -1,0 +1,9 @@
+.mask {
+  mask-type: alpha;
+}
+
+@keyframes strokeOffset {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
