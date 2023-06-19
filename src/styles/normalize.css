@@ -51,8 +51,15 @@ body {
 *:after {
   -moz-box-sizing: inherit;
   box-sizing: inherit;
+  padding: 0;
+  margin: 0;
 }
-
+/* 
+ * https://bitsofco.de/when-is-focus-visible-visible/#bonus-user-agent-wildcard
+ */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
 /* ==========================================================================
    HTML5 display defenitions
    ========================================================================== */
@@ -265,6 +272,7 @@ textarea {
   /* 1 */
   margin: 0;
   /* 2 */
+  padding: 0;
 }
 
 /*

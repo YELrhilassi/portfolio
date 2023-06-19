@@ -1,5 +1,5 @@
-.mask {
-  mask-type: alpha;
+.svgContainer {
+  width: 100%;
 }
 
 @keyframes strokeOffset {

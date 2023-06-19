@@ -1,0 +1,62 @@
+@import "src/styles/variables";
+
+@mixin centerObj {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.arrowBtn {
+  width: 66px;
+  height: 66px;
+  padding: 5px 7px;
+  button {
+    -webkit-tap-highlight-color: transparent;
+    background-color: $sand;
+    border: none;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: $dark-sand;
+    }
+    &:focus-visible,
+    :focus {
+      background-color: $sand;
+      outline: solid 1px $dark-grey;
+    }
+
+    &::after {
+      content: url("/rightArrow.svg");
+      display: flex;
+      justify-content: center;
+      position: relative;
+      top: -5px;
+      left: -7px;
+
+      width: 66px;
+      height: 66px;
+      padding: 1rem;
+
+      border: solid;
+      border-radius: 50%;
+    }
+  }
+}
+
+.animateBtn {
+  background-color: $sand;
+  &::after {
+    animation: buttonClicked 220ms ease-in;
+  }
+}
+
+@keyframes buttonClicked {
+  50% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: -5px;
+    left: -7px;
+  }
+}

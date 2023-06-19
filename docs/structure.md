@@ -22,6 +22,13 @@ src/
   │       ├── components/
   │       ├── styles/
   │       └── index.js
+  |
+  ├── res/
+  │   ├── images.js ( const images = { img: 'path/to/img.ext'}  )
+  │   ├──
+  │   │
+  │   │
+  │   └──
   ├── styles/
   ├── utils/
   └── AppRouter.js           (Router configuration)

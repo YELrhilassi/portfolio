@@ -1,0 +1,6 @@
+{
+  "max-len": [
+    "error",
+    { "ignoreTemplateLiterals": true, "ignoreStrings": true }
+  ]
+}
