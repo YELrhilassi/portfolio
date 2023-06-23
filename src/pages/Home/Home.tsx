@@ -5,11 +5,9 @@ export default function Home() {
   return (
     <FlexDiv
       justifyContent="space-around"
-      gap="8rem"
-      className="me stuff"
-      backgroundColor="yellow"
-      alignContent="center"
-      textAlign="end"
+      backgroundColor="green"
+      tablet={{ backgroundColor: "cadetblue" }}
+      desktop={{ backgroundColor: "red" }}
     >
       <div>Home</div>
       <div>menu</div>

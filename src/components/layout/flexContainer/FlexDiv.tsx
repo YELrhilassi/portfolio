@@ -6,6 +6,9 @@ import st from "./flexDiv.module.scss";
 interface FlexProps extends DivStylesEvents {
   children?: any;
   className?: string;
+  mobile?: CSS.Properties;
+  tablet?: CSS.Properties;
+  desktop?: CSS.Properties;
 }
 
 interface DivStylesEvents

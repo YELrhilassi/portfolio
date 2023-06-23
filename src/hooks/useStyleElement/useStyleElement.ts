@@ -10,7 +10,19 @@ type CssClassType = {
   styles: string;
 };
 type AttachedCssObj = {
-  [className: string]: string;
+  [key: string]: string;
+};
+
+const SCREEN: AttachedCssObj = {
+  xl: `min-width: 1200px`,
+  xxl: `min-width: 1400px`,
+  lg: `min-width: 992px`,
+  md: `min-width: 768px`,
+  sm: `min-width: 576px`,
+  xs: `max-width: 576px`,
+  mobile: `max-width: 767px`,
+  tablet: `min-width: 768px`,
+  desktop: `min-width: 992px`,
 };
 
 export default function useStyleElement(
@@ -18,10 +30,21 @@ export default function useStyleElement(
   styles: CssProperties
 ) {
   const { current: className } = useRef(`_${styleElemID}_${getUniqueId()}`);
+  const { mobile, tablet, desktop, ...rest } = styles;
 
   useEffect(() => {
-    generateAtachedCss(styleElemID, generateCssClass(className, styles));
-  });
+    generateAtachedCss(styleElemID, generateCssClass(className, rest));
+
+    for (const key in SCREEN) {
+      if (styles[key]) {
+        generateAtachedCss(
+          `${key}Media`,
+          generateCssClass(className, styles[key]),
+          SCREEN[key]
+        );
+      }
+    }
+  }, [rest, mobile, tablet, desktop]);
   return [className];
 }
 
@@ -36,7 +59,11 @@ function generateCssClass(className: string, styles: any): CssClassType {
   return { className, styles: `.${className}{ ${cssText} }` };
 }
 
-function generateAtachedCss(styleElemID: string, cssClass: CssClassType) {
+function generateAtachedCss(
+  styleElemID: string,
+  cssClass: CssClassType,
+  screenMedia?: string
+) {
   let styleElement = document.getElementById(styleElemID);
   const attachedCss = getAttachedCss(styleElement);
 
@@ -71,6 +98,16 @@ function generateAtachedCss(styleElemID: string, cssClass: CssClassType) {
     allStyles = `${allStyles} ${attachedCss[key]}`;
   }
 
+  if (screenMedia && allStyles.includes("@")) {
+    styleElement.textContent = `@media only screen and ( ${screenMedia} ){ ${allStyles
+      .match(/\._[\w\d]+[^{]+{[^}]+}/g)
+      ?.join(" ")} }`;
+    return;
+  }
+  if (screenMedia) {
+    styleElement.textContent = `@media only screen and ( ${screenMedia} ){ ${allStyles} }`;
+    return;
+  }
   styleElement.textContent = allStyles;
 }
 
