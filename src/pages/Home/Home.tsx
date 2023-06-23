@@ -5,10 +5,11 @@ export default function Home() {
   return (
     <FlexDiv
       justifyContent="space-around"
-      gap="9rem"
+      gap="8rem"
       className="me stuff"
-      backgroundColor="red"
+      backgroundColor="yellow"
       alignContent="center"
+      textAlign="end"
     >
       <div>Home</div>
       <div>menu</div>
