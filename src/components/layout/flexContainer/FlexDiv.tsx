@@ -18,14 +18,12 @@ interface DivStylesEvents
 export default function FlexDiv(props: FlexProps) {
   const { children, className, ...rest } = props;
 
-  const box = useRef<HTMLDivElement>(null);
-
   const { styles, events } = stylesAndEventsFromProps(rest);
 
   const [cssClass] = useStyleElement("boxDivs", styles);
 
   return (
-    <div ref={box} className={`${st.flexContainer} ${cssClass}`} {...events}>
+    <div className={`${st.flexContainer} ${cssClass}`} {...events}>
       {props.children}
     </div>
   );

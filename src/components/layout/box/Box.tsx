@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import st from "./box.module.scss";
 import CSS from "csstype";
 
