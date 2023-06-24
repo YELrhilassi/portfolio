@@ -1,26 +1,28 @@
 import { useRef } from "react";
 import st from "components/common/buttons/buttons.module.scss";
-import { ArrowButtonProps } from "./types";
+import { ArrowbtnToProps, ArrowButtonProps } from "./types";
+import { useNavigate } from "react-router-dom";
 
-export function ArrowButton({ className }: ArrowButtonProps) {
-  const button = useRef<HTMLButtonElement>(null);
+export function ArrowBtn({ className, ...rest }: ArrowButtonProps) {
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const buttonClick = (button: HTMLButtonElement | null) => {
+  const switchClass = () => {
+    const button = buttonRef.current;
     if (button) {
-      const { classList } = button;
-      !classList.contains(st.animateBtn)
-        ? classList.add(st.animateBtn)
-        : classList.remove(st.animateBtn);
+      button.classList.add(st.animateBtn);
+      button.onanimationend = () => button.classList.remove(st.animateBtn);
     }
   };
 
   return (
-    <div className={`${st.arrowBtn} ${className}`}>
-      <button
-        ref={button}
-        onClick={() => buttonClick(button.current)}
-        onAnimationEnd={() => buttonClick(button.current)}
-      />
+    <div className={`${st.arrowBtn} ${className}`} onClick={switchClass}>
+      <button ref={buttonRef} {...rest} />
     </div>
   );
+}
+
+export function ArrowBtnTo({ to, ...rest }: ArrowbtnToProps) {
+  const navigate = useNavigate();
+
+  return <ArrowBtn onAnimationEnd={() => navigate(to)} {...rest} />;
 }

@@ -1,13 +1,15 @@
 import AnimatedLogo from "components/common/AnimatedLogo";
-import { ArrowButton } from "components/common/buttons";
+import { ArrowBtnTo } from "components/common/buttons";
+import WelcomeLayout from "components/layout/pagesLayout/welcomeLayout";
 import st from "pages/welcome/welcome.module.scss";
 
 export default function Welcome() {
   return (
-    <div className={st.pageLayout}>
+    <WelcomeLayout>
       <AnimatedLogo className={st.logo} width="130px" animationTime={1.5} />
 
-      <ArrowButton className={st.arrowBtn} />
+      <ArrowBtnTo className={st.arrowBtn} to="home" />
+
       <div className={st.welcomeTxt}>
         <h2>Welcome !</h2>
         <p>
@@ -15,6 +17,6 @@ export default function Welcome() {
           precision.
         </p>
       </div>
-    </div>
+    </WelcomeLayout>
   );
 }
