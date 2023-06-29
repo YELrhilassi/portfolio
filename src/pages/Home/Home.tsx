@@ -1,9 +1,10 @@
-import FlexDiv from "components/layout/flexContainer";
+import Box from "components/layout/box";
 import "pages/Home/styles.css";
 
 export default function Home() {
   return (
-    <FlexDiv
+    <Box
+      display="flex"
       justifyContent="space-around"
       backgroundColor="green"
       tablet={{ backgroundColor: "cadetblue" }}
@@ -11,6 +12,6 @@ export default function Home() {
     >
       <div>Home</div>
       <div>menu</div>
-    </FlexDiv>
+    </Box>
   );
 }

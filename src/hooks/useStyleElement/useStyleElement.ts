@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useRef, useState } from "react";
 import CSS from "csstype";
 
-type CssProperties = {
-  [key: string]: CSS.Properties;
+export type CssProperties = {
+  [key: string]: CSS.Properties<string>;
 };
 type CssClassType = {
   className: string;
@@ -14,15 +14,15 @@ type AttachedCssObj = {
 };
 
 const SCREEN: AttachedCssObj = {
-  xl: `min-width: 1200px`,
-  xxl: `min-width: 1400px`,
-  lg: `min-width: 992px`,
-  md: `min-width: 768px`,
-  sm: `min-width: 576px`,
-  xs: `max-width: 576px`,
   mobile: `max-width: 767px`,
   tablet: `min-width: 768px`,
   desktop: `min-width: 992px`,
+  // xl: `min-width: 1200px`,
+  // xxl: `min-width: 1400px`,
+  // lg: `min-width: 992px`,
+  // md: `min-width: 768px`,
+  // sm: `min-width: 576px`,
+  // xs: `max-width: 576px`,
 };
 
 export default function useStyleElement(
