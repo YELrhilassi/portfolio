@@ -1,31 +1,25 @@
 import { useRef } from "react";
-import st from "./box.module.scss";
-import CSS from "csstype";
+import stylesAndEventsFromProps from "utils/stylesAndEventsFromProps";
+import useStyleElement from "hooks/useStyleElement";
 
-interface BoxProps extends CSS.Properties, React.DOMAttributes<HTMLDivElement> {
-  children?: any;
-  className?: string;
-}
+import st from "./box.module.scss";
+import { BoxProps } from "../layoutTypes";
 
 export default function Box(props: BoxProps) {
-  const { children, className, ...rest } = props;
   const box = useRef<HTMLDivElement>(null);
-  const { events } = stylesAndEventsFromProps(rest);
 
+  const { styles, events } = stylesAndEventsFromProps(props);
+  const elemTag = props.name || "boxDivs";
+  const [cssClass] = useStyleElement(elemTag, styles);
   return (
-    <div ref={box} className={`${st.boxCss} ${className}`} {...events}>
+    <div
+      ref={box}
+      className={`${st.BoxCss} ${cssClass} ${
+        props.className && props.className
+      }`}
+      {...events}
+    >
       {props.children}
     </div>
   );
-}
-
-function stylesAndEventsFromProps(props: any) {
-  const styles = Object.fromEntries(
-    Object.entries(props).filter(([k]) => !k.match(/^on/g))
-  );
-
-  const events = Object.fromEntries(
-    Object.entries(props).filter(([k]) => k.match(/^on/g))
-  );
-  return { styles, events };
 }
