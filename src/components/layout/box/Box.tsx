@@ -9,10 +9,16 @@ export default function Box(props: BoxProps) {
   const box = useRef<HTMLDivElement>(null);
 
   const { styles, events } = stylesAndEventsFromProps(props);
-
-  const [cssClass] = useStyleElement("boxDivs", styles);
+  const elemTag = props.name || "boxDivs";
+  const [cssClass] = useStyleElement(elemTag, styles);
   return (
-    <div ref={box} className={`${cssClass}`} {...events}>
+    <div
+      ref={box}
+      className={`${st.BoxCss} ${cssClass} ${
+        props.className && props.className
+      }`}
+      {...events}
+    >
       {props.children}
     </div>
   );

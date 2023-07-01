@@ -5,6 +5,7 @@ export interface BoxProps
     React.DOMAttributes<HTMLElement> {
   children?: any;
   className?: string;
+  name?: string;
   mobile?: CSS.Properties;
   tablet?: CSS.Properties;
   desktop?: CSS.Properties;
