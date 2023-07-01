@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import CSS from "csstype";
 
 export type CssProperties = {
@@ -51,7 +51,7 @@ export default function useStyleElement(
 function generateCssClass(className: string, styles: any): CssClassType {
   let cssText = "";
 
-  for (let key in styles) {
+  for (const key in styles) {
     const value = styles[key].toString();
     cssText = `${cssText} ${toDashed(key)}: ${value};`;
   }
