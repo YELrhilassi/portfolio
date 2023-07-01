@@ -70,7 +70,7 @@ function SidePageTag() {
       <Box
         writingMode="vertical-rl"
         width="max-content"
-        marginLeft="6vw"
+        marginLeft="5vw"
         transform="translateX(-62%) rotate(180deg)"
         fontSize="21px"
       >
