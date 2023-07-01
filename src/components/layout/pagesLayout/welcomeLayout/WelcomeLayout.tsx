@@ -1,4 +1,4 @@
-import st from "./welcomeLayout.module.css";
+import st from "./welcomeLayout.module.scss";
 type PopTypes = {
   children?: React.ReactNode | null;
 };

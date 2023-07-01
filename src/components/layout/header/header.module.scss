@@ -1,0 +1,18 @@
+@import "src/styles/variables.module.scss";
+
+.headerBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 47px;
+
+  border-top: solid 2px $light-grey;
+  border-bottom: solid 2px $light-grey;
+}
+
+.headerLogo {
+  position: absolute;
+  left: 5vw;
+}
