@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import useStyleElement from "hooks/useStyleElement";
 import stylesAndEventsFromProps from "utils/stylesAndEventsFromProps";
 import { BoxProps } from "../layoutTypes";

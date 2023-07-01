@@ -27,4 +27,4 @@ export function ArrowBtnTo({ to, ...rest }: ArrowbtnToProps) {
   return <ArrowBtn onAnimationEnd={() => navigate(to)} {...rest} />;
 }
 
-function LinkBtn(params: any) {}
+// function LinkBtn(params: any) {}

@@ -12,7 +12,7 @@ export default function Header() {
   );
 }
 
-function Menu(params: any) {
+function Menu() {
   return (
     <Box display="flex" gap="1rem" justifyContent="center">
       <div>Home</div>

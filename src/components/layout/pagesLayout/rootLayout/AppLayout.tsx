@@ -1,7 +1,6 @@
 import Box from "components/layout/box";
 import Header from "components/layout/header";
 import Page from "components/layout/page/Page";
-import SVG from "../../../../../public/Line_10.svg";
 
 import { Outlet } from "react-router-dom";
 
@@ -42,7 +41,7 @@ export default function AppLayout() {
   );
 }
 
-function SidePageTag({ height }: any) {
+function SidePageTag() {
   return (
     <Box
       name="sideTag"

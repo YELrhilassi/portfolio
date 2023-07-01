@@ -1,5 +1,4 @@
 import Box from "components/layout/box";
-import { BoxProps } from "components/layout/layoutTypes";
 import "pages/Home/styles.css";
 
 export default function Home() {
