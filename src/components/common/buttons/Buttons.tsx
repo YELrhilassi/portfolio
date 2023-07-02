@@ -2,7 +2,6 @@ import { useRef } from "react";
 import st from "components/common/buttons/buttons.module.scss";
 import { ArrowbtnToProps, ArrowButtonProps } from "./types";
 import { Link, useNavigate } from "react-router-dom";
-import Box from "components/layout/box";
 
 export function ArrowBtn({ className, ...rest }: ArrowButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);

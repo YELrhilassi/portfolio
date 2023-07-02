@@ -1,8 +1,6 @@
 import st from "components/layout/header/header.module.scss";
 import Box from "../box";
 import { HomeLogo } from "components/common/buttons";
-import { NavLink } from "react-router-dom";
-import { styled } from "../box/Box";
 
 export default function Header() {
   return (
@@ -11,27 +9,26 @@ export default function Header() {
         <Box className={st.headerLogo}>
           <HomeLogo />
         </Box>
-        <Menu />
       </div>
     </>
   );
 }
 
-const Nav = styled("nav");
+// const Nav = styled("nav");
 
-function Menu() {
-  return (
-    <Nav
-      display="flex"
-      gap="15%"
-      justifyContent="center"
-      border="solid 1px"
-      width="80%"
-    >
-      <NavLink to="home/about">Home</NavLink>
-      <NavLink to="contact">Contact</NavLink>
-      <NavLink to="blog">Blog</NavLink>
-      <NavLink to="resume">Resume</NavLink>
-    </Nav>
-  );
-}
+// function Menu() {
+//   return (
+//     <Nav
+//       display="flex"
+//       gap="15%"
+//       justifyContent="center"
+//       border="solid 1px"
+//       width="80%"
+//     >
+//       <NavLink to="home/about">Home</NavLink>
+//       <NavLink to="contact">Contact</NavLink>
+//       <NavLink to="blog">Blog</NavLink>
+//       <NavLink to="resume">Resume</NavLink>
+//     </Nav>
+//   );
+// }

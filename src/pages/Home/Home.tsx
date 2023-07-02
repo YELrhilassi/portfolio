@@ -1,8 +1,9 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 import Box from "components/layout/box";
-import AboutMe from "pages/AboutMe";
 import useCurrentSection from "hooks/useCurrentSection";
+import AboutMe from "pages/AboutMe";
 import "pages/Home/styles.css";
+import { useNavigate } from "react-router-dom";
 
 type Section = {
   url: string;
@@ -20,6 +21,12 @@ const homeSections: Section[] = [
 
 export default function Home() {
   const currentSection = useCurrentSection(homeSections);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!currentSection) {
+      navigate("about");
+    }
+  }, [currentSection]);
 
   return (
     <Box
@@ -44,7 +51,7 @@ export function SidePageTag() {
       flexDirection="column"
       gap="1rem"
     >
-      <Box width="max-content" marginLeft="5vw">
+      <Box name="sideTag" width="max-content" marginLeft="5vw">
         <svg
           width="4"
           viewBox="0 0 4 392"
@@ -62,6 +69,7 @@ export function SidePageTag() {
         </svg>
       </Box>
       <Box
+        name="sideTag"
         writingMode="vertical-rl"
         width="max-content"
         marginLeft="5vw"

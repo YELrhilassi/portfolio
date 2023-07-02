@@ -3,11 +3,11 @@ import Header from "components/layout/header";
 import Page from "components/layout/page/Page";
 import { SidePageTag } from "pages/Home/Home";
 
-import { Outlet, useLocation, useParams } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 export default function AppLayout() {
   return (
-    <Page>
+    <Page background="#FFFAF1">
       <Box
         name="headerBox"
         gridColumn="1 / 13"
@@ -35,6 +35,7 @@ export default function AppLayout() {
         gridColumn="1 / 13"
         gridRow="2 / 14"
         position="relative"
+        overflow="hidden"
       >
         <Outlet />
       </Box>

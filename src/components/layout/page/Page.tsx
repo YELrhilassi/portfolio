@@ -1,6 +1,7 @@
 import Box from "../box";
+import { BoxProps } from "../layoutTypes";
 
-export default function Page({ children }: any) {
+export default function Page({ children, ...rest }: BoxProps) {
   return (
     <Box
       name="pageBox"
@@ -10,7 +11,7 @@ export default function Page({ children }: any) {
       columnGap="1rem"
       height="100vh"
       width="100vw"
-      background="#FFFAF1"
+      {...rest}
     >
       {children}
     </Box>

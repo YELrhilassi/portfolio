@@ -1,9 +1,9 @@
-import { useRef } from "react";
+import { ElementType, useRef } from "react";
 import { useStyleElement } from "hooks/useStyleElement";
 import stylesAndEventsFromProps from "utils/stylesAndEventsFromProps";
 
 import st from "./box.module.scss";
-import { BoxProps } from "../layoutTypes";
+import { BoxProps, InitStyles } from "../layoutTypes";
 
 export default function Box(props: BoxProps) {
   const box = useRef<HTMLDivElement>(null);
@@ -24,13 +24,17 @@ export default function Box(props: BoxProps) {
   );
 }
 
-export function styled(Tag: any) {
+export function styled(Tag: string, initStyles?: InitStyles) {
   return (props: BoxProps) => {
     const box = useRef<HTMLDivElement>(null);
 
     const { styles, events } = stylesAndEventsFromProps(props);
+    let allStyles = styles;
+    if (initStyles) {
+      allStyles = { ...styles, ...initStyles };
+    }
     const elemTag = props.name || "boxDivs";
-    const [cssClass] = useStyleElement(elemTag, styles);
+    const [cssClass] = useStyleElement(elemTag, allStyles);
     return (
       <Tag
         ref={box}

@@ -19,7 +19,7 @@ export default function useCurrentSection(sectionsList: Section[]) {
         sectionsList.find((section) => section.url === paramSection)
       );
     }
-  }, [paramSection]);
+  }, [paramSection, sectionsList]);
 
   return currentSection;
 }
