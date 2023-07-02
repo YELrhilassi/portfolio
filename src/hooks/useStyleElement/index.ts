@@ -1,3 +1,4 @@
+import useCurrentSection from "hooks/useCurrentSection";
 import useStyleElement from "./useStyleElement";
 
-export default useStyleElement;
+export { useStyleElement, useCurrentSection };

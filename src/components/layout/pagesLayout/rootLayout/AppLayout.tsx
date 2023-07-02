@@ -1,8 +1,9 @@
 import Box from "components/layout/box";
 import Header from "components/layout/header";
 import Page from "components/layout/page/Page";
+import { SidePageTag } from "pages/Home/Home";
 
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation, useParams } from "react-router-dom";
 
 export default function AppLayout() {
   return (
@@ -38,44 +39,5 @@ export default function AppLayout() {
         <Outlet />
       </Box>
     </Page>
-  );
-}
-
-function SidePageTag() {
-  return (
-    <Box
-      name="sideTag"
-      width="fit-content"
-      display="flex"
-      flexDirection="column"
-      gap="1rem"
-    >
-      <Box width="max-content" marginLeft="5vw">
-        <svg
-          width="4"
-          viewBox="0 0 4 392"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line
-            x1="2.09497"
-            y1="0.00127496"
-            x2="1.59497"
-            y2="391.001"
-            stroke="#ACACAB"
-            strokeWidth="2"
-          />
-        </svg>
-      </Box>
-      <Box
-        writingMode="vertical-rl"
-        width="max-content"
-        marginLeft="5vw"
-        transform="translateX(-62%) rotate(180deg)"
-        fontSize="21px"
-      >
-        About Me
-      </Box>
-    </Box>
   );
 }
