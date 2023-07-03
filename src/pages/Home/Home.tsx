@@ -21,12 +21,12 @@ const homeSections: Section[] = [
 
 export default function Home() {
   const currentSection = useCurrentSection(homeSections);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!currentSection) {
-      navigate("about");
-    }
-  }, [currentSection]);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (!currentSection) {
+  //     navigate("about");
+  //   }
+  // }, [currentSection]);
 
   return (
     <Box
@@ -70,11 +70,15 @@ export function SidePageTag() {
       </Box>
       <Box
         name="sideTag"
-        writingMode="vertical-rl"
         width="max-content"
         marginLeft="5vw"
-        transform="translateX(-62%) rotate(180deg)"
-        fontSize="21px"
+        writingMode="vertical-rl"
+        transform="translateX(-48%) rotate(180deg)"
+        fontFamily="Cormorant Garamond"
+        fontSize="1.3rem"
+        fontWeight="600"
+        color="#5A5753"
+        opacity="71%"
       >
         {currentSection?.name}
       </Box>

@@ -19,10 +19,8 @@ function createRoutes() {
   return createRoutesFromElements(
     <Route path="/">
       <Route index element={<Welcome />} />
-      <Route path="/" element={<AppLayout />}>
-        <Route path="home" element={<Home />}>
-          <Route path=":section" />
-        </Route>
+      <Route element={<AppLayout />}>
+        <Route path="home/:section" element={<Home />} />
       </Route>
     </Route>
   );
