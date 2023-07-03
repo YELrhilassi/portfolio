@@ -1,9 +1,8 @@
-import { ReactElement, useEffect } from "react";
+import { ReactElement } from "react";
 import Box from "components/layout/box";
 import useCurrentSection from "hooks/useCurrentSection";
 import AboutMe from "pages/AboutMe";
 import "pages/Home/styles.css";
-import { useNavigate } from "react-router-dom";
 
 type Section = {
   url: string;
