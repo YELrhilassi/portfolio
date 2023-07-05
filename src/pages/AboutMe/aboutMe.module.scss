@@ -1,14 +1,47 @@
+.profilePic {
+  clip-path: circle(50%);
+  width: 100%;
+}
+
 .animate {
+  position: absolute;
+  z-index: 1;
   transform-origin: center center;
-  transform: translate3d(0, 0, 0);
-  animation: spin 6s cubic-bezier(0.8, 0, 0.2, 1);
+  //   transform: translate3d(0, 0, 0);
+  width: 125%;
+  left: -3.5vw;
+  top: -3.5vw;
+  animation: spin 60s infinite linear;
 }
 
 @keyframes spin {
-  50% {
-    transform: rotate(180deg);
+  from {
+    transform: rotate(0deg);
   }
-  100% {
+  to {
     transform: rotate(360deg);
+  }
+}
+
+.typedText {
+  margin-right: 0.3rem;
+}
+
+.bar {
+  //   width: 5px;
+  position: relative;
+  font-size: 2rem;
+  top: 2px;
+
+  animation: cursor 1s infinite none;
+}
+
+@keyframes cursor {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

@@ -1,6 +1,8 @@
 import Box from "components/layout/box";
 import { styled } from "components/layout/box/Box";
 import ProfilePic from "./ProfilePic";
+import st from "./aboutMe.module.scss";
+import { useEffect, useState } from "react";
 
 export default function AboutMe() {
   return (
@@ -21,16 +23,24 @@ export default function AboutMe() {
             Hi there! <Span>I'm Youssef.</Span>
           </Box>
         </Box>
-        <Box fontSize="2.5vh" fontWeight="600">
-          A web developper with a passion &nbsp;
-          <Span>for front-end development.</Span>
+        <Box
+          fontSize="2.5vh"
+          fontWeight="600"
+          display="flex"
+          flexDirection="column"
+        >
+          <Span>A web developper with a passion &nbsp;</Span>
+
+          <Span>
+            for <TypedText /> development.
+          </Span>
         </Box>
         <Box
           display="flex"
-          fontSize="2vh"
+          fontSize="2.3vh"
           flexDirection="column"
           gap="1rem"
-          fontWeight="600"
+          fontWeight="500"
         >
           <p>
             With my academic background in linguistics, I’m constantly exploring
@@ -58,9 +68,9 @@ export default function AboutMe() {
           <img src="/patterns.svg" alt="" />
           <Box
             position="absolute"
-            width="50vw"
-            left="65vw"
-            top="-17vw"
+            width="35vw"
+            left="75vw"
+            top="-10vw"
             desktop={{ width: "30vw", left: "42vw", top: "-15vw" }}
           >
             <ProfilePic />
@@ -68,6 +78,77 @@ export default function AboutMe() {
         </Box>
       </Box>
     </Box>
+  );
+}
+
+function TypedText() {
+  const [text, setText] = useState<any>("");
+  const [currentStringIndex, setCurrentStringIndex] = useState(0);
+  const stringsToType = ["front-end", "UX/UI"];
+  // const stringToType = "front-end";
+
+  useEffect(() => {
+    let index = 0;
+    let isDeleting = false;
+
+    const timer = setInterval(() => {
+      const stringToType = stringsToType[currentStringIndex];
+
+      setText((prev: any) => {
+        if (!isDeleting && prev.length <= stringToType.length) {
+          if (prev.length === stringToType.length) {
+            isDeleting = true;
+          }
+          return prev + stringToType.charAt(prev.length);
+        }
+        if (isDeleting && prev.length >= 0) {
+          if (!prev.length) {
+            isDeleting = true;
+          }
+          return prev.slice(0, prev.length - 1);
+        }
+      });
+    }, 1000);
+
+    // const typeEffect = () => {
+    //   const stringToType = stringsToType[currentStringIndex];
+
+    //   if (!isDeleting && index < stringToType.length) {
+    //     setText((prev) => prev + stringToType.charAt(prev.length));
+    //     index++;
+    //   } else if (isDeleting && index >= 0) {
+    //     setText((prevText) => prevText.slice(0, index));
+    //     index--;
+    //   }
+
+    //   if (index === stringToType.length) {
+    //     isDeleting = true;
+    //   }
+
+    //   if (index === -1) {
+    //     isDeleting = false;
+    //     setCurrentStringIndex(
+    //       (prevIndex) => (prevIndex + 1) % stringsToType.length
+    //     );
+    //     index = 0;
+    //   }
+    // };
+
+    // const timer = setInterval(typeEffect, 200);
+
+    // return () => {
+    //   clearTimeout(timer);
+    // };
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [currentStringIndex, text]);
+  return (
+    <Span className={st.typedText}>
+      {text}
+      <span className={st.bar}>&#124;</span>
+    </Span>
   );
 }
 

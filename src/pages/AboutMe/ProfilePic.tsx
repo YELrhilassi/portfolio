@@ -1,34 +1,9 @@
+import st from "./aboutMe.module.scss";
+
 export default function ProfilePic() {
   return (
-    <svg viewBox="0 0 442 438" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g id="aboutProfilePic">
-        <g id="profilePic">
-          <mask
-            id="mask0_335_2415"
-            style={{ maskType: "alpha" }}
-            maskUnits="userSpaceOnUse"
-            x="23"
-            y="0"
-            width="419"
-            height="422"
-          >
-            <path
-              id="applyedMask"
-              d="M441.312 200.092C435.057 276.257 406.787 325.459 366.311 358.714C323.125 394.195 273.513 421.516 203.597 421.516C91.7317 421.516 26.053 320.404 23.5106 204.785C26.9005 84.0473 123.512 0 241.733 0C372.243 8.10608 450.21 91.7268 441.312 200.092Z"
-              fill="black"
-            />
-          </mask>
-          <g mask="url(#mask0_335_2415)">
-            <rect
-              id="img"
-              x="-35.9523"
-              y="-127.094"
-              width="477.952"
-              height="637.587"
-              fill="url(#pattern0)"
-            />
-          </g>
-        </g>
+    <>
+      <svg className={st.animate} viewBox="-50 -50 500 500" fill="none">
         <g id="orbit">
           <path
             id="moon"
@@ -44,23 +19,9 @@ export default function ProfilePic() {
             strokeWidth="1.82456"
           />
         </g>
-      </g>
-      <defs>
-        <pattern
-          id="pattern0"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1"
-        >
-          <use xlinkHref="#image" transform="scale(0.00138525 0.00103842)" />
-        </pattern>
-        <image
-          id="image"
-          width="722 "
-          height="963"
-          xlinkHref="/profilePic.png"
-        />
-      </defs>
-    </svg>
+      </svg>
+
+      <img className={st.profilePic} src="/roundProfilePic.jpg" alt="" />
+    </>
   );
 }
