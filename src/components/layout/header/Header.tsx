@@ -1,20 +1,17 @@
-import st from "components/layout/header/header.module.scss";
-import Box from "../box";
 import { HomeLogo } from "components/common/buttons";
+import st from "components/layout/header/header.module.scss";
 
 export default function Header() {
   return (
-    <>
-      <div className={st.headerBody}>
-        <Box className={st.headerLogo}>
-          <HomeLogo />
-        </Box>
+    <div className={st.headerBody}>
+      <div className={st.headerLogo}>
+        <HomeLogo />
       </div>
-    </>
+    </div>
   );
 }
 
-// const Nav = styled("nav");
+// const Nav = styled("div");
 
 // function Menu() {
 //   return (
@@ -25,10 +22,10 @@ export default function Header() {
 //       border="solid 1px"
 //       width="80%"
 //     >
-//       <NavLink to="home/about">Home</NavLink>
+//       <NavLink to="about">Home</NavLink>
 //       <NavLink to="contact">Contact</NavLink>
-//       <NavLink to="blog">Blog</NavLink>
-//       <NavLink to="resume">Resume</NavLink>
+//       <NavLink to="/blog">Blog</NavLink>
+//       <NavLink to="/resume">Resume</NavLink>
 //     </Nav>
 //   );
 // }

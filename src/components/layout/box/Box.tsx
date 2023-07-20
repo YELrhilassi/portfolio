@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useStyleElement } from "hooks/useStyleElement";
+import { useStyleElement } from "hooks";
 import stylesAndEventsFromProps from "utils/stylesAndEventsFromProps";
 
 import st from "./box.module.scss";
@@ -31,7 +31,7 @@ export function styled(Tag: string, initStyles?: InitStyles) {
     const { styles, events } = stylesAndEventsFromProps(props);
     let allStyles = styles;
     if (initStyles) {
-      allStyles = { ...styles, ...initStyles };
+      allStyles = { ...initStyles, ...styles };
     }
     const elemTag = props.name || "boxDivs";
     const [cssClass] = useStyleElement(elemTag, allStyles);

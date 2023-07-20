@@ -1,0 +1,14 @@
+<svg width="427" height="424" viewBox="0 0 427 424" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<mask id="mask0_487_70" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="422" height="420">
+<path d="M205.276 3.17808C281.356 10.3795 330.202 39.2603 362.951 80.1468C397.893 123.771 424.594 173.719 423.724 243.629C422.332 355.486 320.41 419.902 204.769 421.005C84.0829 416.113 1.24432 318.464 2.71537 200.251C12.4448 69.8524 97.0291 -7.06803 205.276 3.17808Z" fill="black"/>
+</mask>
+<g mask="url(#mask0_487_70)">
+<rect x="-57.899" y="-48.9073" width="478" height="493" rx="239" fill="url(#pattern0)"/>
+</g>
+<defs>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_487_70" transform="matrix(0.00138504 0 0 0.0013429 0 -0.146607)"/>
+</pattern>
+<image id="image0_487_70" width="722" height="963" xlinkHref="/roundProfilePic.jpg" />
+</defs>
+</svg>

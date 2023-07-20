@@ -10,16 +10,25 @@ type Section = {
 type CurrentSection = Section | undefined | null;
 
 export default function useCurrentSection(sectionsList: Section[]) {
-  const [currentSection, setCurrentSection] = useState<CurrentSection>(null);
   const { section: paramSection } = useParams();
+  const [currentSection, setCurrentSection] = useState<CurrentSection>(() =>
+    findSection(sectionsList, paramSection)
+  );
 
   useEffect(() => {
     if (paramSection) {
-      setCurrentSection(() =>
-        sectionsList.find((section) => section.url === paramSection)
-      );
+      setCurrentSection(() => findSection(sectionsList, paramSection));
     }
   }, [paramSection, sectionsList]);
 
   return currentSection;
+}
+
+function findSection(
+  sectionsList: Section[],
+  paramSection: string | undefined
+) {
+  return sectionsList.find(
+    (section) => section.url.toLowerCase() === paramSection
+  );
 }

@@ -1,7 +1,7 @@
-import { ReactElement } from "react";
 import Box from "components/layout/box";
-import useCurrentSection from "hooks/useCurrentSection";
-import AboutMe from "pages/AboutMe";
+import { AboutMe, CodeSnippet } from "pages";
+import { useCurrentSection, useFadeIn } from "hooks";
+import { ReactElement } from "react";
 import "pages/Home/styles.css";
 
 type Section = {
@@ -16,34 +16,35 @@ const homeSections: Section[] = [
     name: "About Me",
     element: <AboutMe />,
   },
+  {
+    url: "codesnippet",
+    name: "Contact",
+    element: <CodeSnippet />,
+  },
 ];
 
 export default function Home() {
   const currentSection = useCurrentSection(homeSections);
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (!currentSection) {
-  //     navigate("about");
-  //   }
-  // }, [currentSection]);
+  const [fadeInClass] = useFadeIn();
 
-  return (
-    <Box
-      name="homeContentBox"
-      display="grid"
-      margin="0 auto"
-      position="relative"
-    >
-      {currentSection?.element}
-    </Box>
-  );
+  if (!currentSection) {
+    return <div>Not Found</div>;
+  }
+
+  return <div className={fadeInClass}>{currentSection.element}</div>;
 }
 
 export function SidePageTag() {
   const currentSection = useCurrentSection(homeSections);
+  const [fadeInClass] = useFadeIn();
+
+  if (!currentSection) {
+    return null;
+  }
 
   return (
     <Box
+      className={fadeInClass}
       name="sideTag"
       width="fit-content"
       display="flex"
@@ -74,12 +75,12 @@ export function SidePageTag() {
         writingMode="vertical-rl"
         transform="translateX(-48%) rotate(180deg)"
         fontFamily="Cormorant Garamond"
-        fontSize="1.3rem"
+        fontSize="1.7rem"
         fontWeight="600"
         color="#5A5753"
         opacity="71%"
       >
-        {currentSection?.name}
+        {currentSection.name}
       </Box>
     </Box>
   );

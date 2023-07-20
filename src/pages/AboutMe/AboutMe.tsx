@@ -2,7 +2,7 @@ import Box from "components/layout/box";
 import { styled } from "components/layout/box/Box";
 import ProfilePic from "./ProfilePic";
 import st from "./aboutMe.module.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function AboutMe() {
   return (
@@ -31,8 +31,8 @@ export default function AboutMe() {
         >
           <Span>A web developper with a passion &nbsp;</Span>
 
-          <Span>
-            for <TypedText /> development.
+          <Span display="flex" alignItems="center" gap="0.2rem">
+            for <Typewriter /> <Span>development.</Span>
           </Span>
         </Box>
         <Box
@@ -81,78 +81,54 @@ export default function AboutMe() {
   );
 }
 
-function TypedText() {
-  const [text, setText] = useState<any>("");
-  const [currentStringIndex, setCurrentStringIndex] = useState(0);
-  const stringsToType = ["front-end", "UX/UI"];
-  // const stringToType = "front-end";
+const Typewriter = () => {
+  const phrases = ["front-end", "UX/UI"];
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [delay, setDelay] = useState(150);
+  const [initialDelay] = useState(1000);
+  const elemntRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    let index = 0;
-    let isDeleting = false;
+    const elemnt = elemntRef.current;
+    if (!elemnt) return;
+    const type = () => {
+      const phrase = phrases[currentPhraseIndex];
 
-    const timer = setInterval(() => {
-      const stringToType = stringsToType[currentStringIndex];
+      if (isDeleting) {
+        setCurrentCharacterIndex((prev) => prev - 1);
+        elemnt.textContent = phrase.substring(0, currentCharacterIndex);
+        setDelay(80); // Faster deletion
+      } else {
+        setCurrentCharacterIndex((prev) => prev + 1);
+        elemnt.textContent = phrase.substring(0, currentCharacterIndex);
+        setDelay(180); // Normal typing speed
+      }
 
-      setText((prev: any) => {
-        if (!isDeleting && prev.length <= stringToType.length) {
-          if (prev.length === stringToType.length) {
-            isDeleting = true;
-          }
-          return prev + stringToType.charAt(prev.length);
-        }
-        if (isDeleting && prev.length >= 0) {
-          if (!prev.length) {
-            isDeleting = true;
-          }
-          return prev.slice(0, prev.length - 1);
-        }
-      });
-    }, 1000);
-
-    // const typeEffect = () => {
-    //   const stringToType = stringsToType[currentStringIndex];
-
-    //   if (!isDeleting && index < stringToType.length) {
-    //     setText((prev) => prev + stringToType.charAt(prev.length));
-    //     index++;
-    //   } else if (isDeleting && index >= 0) {
-    //     setText((prevText) => prevText.slice(0, index));
-    //     index--;
-    //   }
-
-    //   if (index === stringToType.length) {
-    //     isDeleting = true;
-    //   }
-
-    //   if (index === -1) {
-    //     isDeleting = false;
-    //     setCurrentStringIndex(
-    //       (prevIndex) => (prevIndex + 1) % stringsToType.length
-    //     );
-    //     index = 0;
-    //   }
-    // };
-
-    // const timer = setInterval(typeEffect, 200);
-
-    // return () => {
-    //   clearTimeout(timer);
-    // };
-
-    return () => {
-      clearInterval(timer);
+      if (!isDeleting && currentCharacterIndex === phrase.length) {
+        setIsDeleting(true);
+        setDelay(initialDelay); // Delay before starting deletion
+      } else if (isDeleting && currentCharacterIndex === 0) {
+        setIsDeleting(false);
+        setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
+        setDelay(150); // Delay before starting typing again
+      }
     };
-  }, [currentStringIndex, text]);
-  return (
-    <Span className={st.typedText}>
-      {text}
-      <span className={st.bar}>&#124;</span>
-    </Span>
-  );
-}
 
-// const Patterns = styled("div");
+    const typingInterval = setTimeout(type, delay);
+
+    return () => clearTimeout(typingInterval);
+  }, [
+    currentCharacterIndex,
+    currentPhraseIndex,
+    delay,
+    initialDelay,
+    isDeleting,
+  ]);
+
+  return <span ref={elemntRef} className={`${st.cursor} `} />;
+};
 
 const TextBox = styled("div", {
   display: "flex",

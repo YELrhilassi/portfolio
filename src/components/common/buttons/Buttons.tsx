@@ -31,7 +31,7 @@ export function ArrowBtnTo({ to, ...rest }: ArrowbtnToProps) {
 
 export function HomeLogo() {
   return (
-    <Link to="home/about">
+    <Link to="/home/about">
       <svg
         width="32"
         height="32"
