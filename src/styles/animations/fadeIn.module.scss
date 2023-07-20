@@ -1,0 +1,19 @@
+.isReady {
+  opacity: 1;
+  transition: all ease-in;
+  animation: fadeIn 500ms ease;
+}
+.isNot {
+  opacity: 0;
+
+  transition: all ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
