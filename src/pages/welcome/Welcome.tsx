@@ -1,6 +1,6 @@
 import AnimatedLogo from "components/common/AnimatedLogo";
 import { ArrowBtnTo } from "components/common/buttons";
-import WelcomeLayout from "components/layout/pagesLayout/welcomeLayout";
+import { WelcomeLayout } from "components/layout/pagesLayout";
 import st from "pages/welcome/welcome.module.scss";
 
 export default function Welcome() {

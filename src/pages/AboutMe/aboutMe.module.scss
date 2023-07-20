@@ -1,0 +1,39 @@
+.profilePic {
+  clip-path: circle(50%);
+  width: 100%;
+}
+
+.animate {
+  position: absolute;
+  z-index: 1;
+  transform-origin: center center;
+  //   transform: translate3d(0, 0, 0);
+  width: 125%;
+  left: -3.5vw;
+  top: -3.5vw;
+  animation: spin 60s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cursor {
+  border-right: solid 3px rgb(0, 0, 0);
+
+  animation: cursorAnimation 1s infinite;
+}
+
+@keyframes cursorAnimation {
+  10% {
+    border-right: solid 3px rgba(0, 0, 0, 0);
+  }
+  70% {
+    border-right: solid 3px rgba(0, 0, 0, 0);
+  }
+}

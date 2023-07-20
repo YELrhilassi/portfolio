@@ -9,9 +9,6 @@ export default function AnimatedLogo({
   animationTime = 1.5,
   className,
 }: AnimatedLogoProps) {
-  // TODO: Add infinit animation
-  // could be use for loading animation ?
-  // could it wrap a <Logo/> component that doesn't have an animation ?
   const group = useRef<any>(0);
 
   useEffect(() => {
