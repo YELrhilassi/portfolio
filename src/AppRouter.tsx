@@ -20,7 +20,7 @@ function createRoutes() {
     <Route path="/">
       <Route index element={<Welcome />} />
       <Route path="home" element={<AppLayout />}>
-        <Route index element={<Navigate to="about" />} />
+        <Route index element={<Navigate to="about" replace />} />
         <Route path=":section" element={<Home />} />
       </Route>
     </Route>

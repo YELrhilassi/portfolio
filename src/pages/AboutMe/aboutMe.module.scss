@@ -1,3 +1,56 @@
+@import "/src/styles/variables.module.scss";
+
+// AboutMe section styles
+
+.aboutMeSection {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: $garamond;
+  justify-content: space-between;
+}
+
+.textBox {
+  display: flex;
+  gap: 3vw;
+  flex-direction: column;
+  position: relative;
+  top: 6vh;
+  left: 15vw;
+  width: 80%;
+  font-weight: 500;
+  z-index: 2;
+
+  .greeting {
+    width: 80vw;
+    font-size: 250%;
+    font-weight: 700;
+    color: #e4a957;
+  }
+
+  .openingText {
+    font-size: 2.5vh;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .introText {
+    display: flex;
+    font-size: 2.3vh;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: 500;
+  }
+
+  @media only screen and (min-width: $desktop-breakpoint) {
+    width: 35%;
+    gap: 1.5vw;
+    font-size: 150%;
+  }
+}
+
+// ProfilePic component styles
 .profilePic {
   clip-path: circle(50%);
   width: 100%;
@@ -7,7 +60,6 @@
   position: absolute;
   z-index: 1;
   transform-origin: center center;
-  //   transform: translate3d(0, 0, 0);
   width: 125%;
   left: -3.5vw;
   top: -3.5vw;
@@ -23,9 +75,10 @@
   }
 }
 
+// TypeWriter styles
 .cursor {
+  font-weight: bolder;
   border-right: solid 3px rgb(0, 0, 0);
-
   animation: cursorAnimation 1s infinite;
 }
 

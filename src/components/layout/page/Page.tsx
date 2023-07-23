@@ -4,9 +4,13 @@ import st from "./page.module.scss";
 //
 export default function Page({
   children,
+  ...rest
 }: {
   children: JSX.Element | JSX.Element[];
-  isReady?: boolean;
 }) {
-  return <div className={`${st.pageBox} `}>{children}</div>;
+  return (
+    <div className={st.pageBox} {...rest}>
+      {children}
+    </div>
+  );
 }
