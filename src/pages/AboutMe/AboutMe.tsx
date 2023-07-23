@@ -1,6 +1,6 @@
 import ProfilePic from "./ProfilePic";
 import Typewriter from "./Typewriter";
-import Box, { styled } from "components/layout/box";
+import Box from "components/layout/box";
 import st from "./aboutMe.module.scss";
 
 export default function AboutMe() {
