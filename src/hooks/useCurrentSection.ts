@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 type Section = {
   url: string;
   name: string;
-  element: ReactElement;
+  element: () => ReactElement;
 };
 
 type CurrentSection = Section | undefined | null;
@@ -28,6 +28,7 @@ function findSection(
   sectionsList: Section[],
   paramSection: string | undefined
 ) {
+  if (!sectionsList) return null;
   return sectionsList.find(
     (section) => section.url.toLowerCase() === paramSection
   );

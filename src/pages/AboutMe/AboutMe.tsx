@@ -18,7 +18,7 @@ export default function AboutMe() {
         <div className={st.introText}>
           <p>
             With my academic background in linguistics, I’m constantly exploring
-            opportunities to transform ways of communication through technology.
+            oportunities to transform ways of communication through technology.
           </p>
           <p>
             My primary focus now is to create dynamic and interactive web
