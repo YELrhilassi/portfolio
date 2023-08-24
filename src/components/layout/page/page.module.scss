@@ -10,3 +10,23 @@
   width: 100vw;
   background-color: $app-background-color;
 }
+
+.headerBox {
+  grid-column: 1 / 13;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.pageTagBox {
+  position: absolute;
+  grid-column: 1 / 2;
+  grid-row: 2 / 10;
+}
+
+.contentBox {
+  grid-column: 1 / 13;
+  grid-row: 2 / 14;
+  overflow: hidden;
+}

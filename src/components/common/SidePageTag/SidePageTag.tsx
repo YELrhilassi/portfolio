@@ -3,7 +3,6 @@ import { useCurrentSection, useFadeIn } from "hooks";
 
 export default function SidePageTag({ currentSection }: any) {
   //   const currentSection = useCurrentSection(homeSections);
-  console.log(currentSection);
 
   const [fadeInClass] = useFadeIn();
 

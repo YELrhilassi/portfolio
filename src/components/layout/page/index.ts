@@ -1,3 +1,6 @@
+import ContentBox from "./ContentBox";
+import HeaderBox from "./HeaderBox";
 import Page from "./Page";
+import PageTagBox from "./PageTagBox";
 
-export default Page;
+export { Page, PageTagBox, HeaderBox, ContentBox };

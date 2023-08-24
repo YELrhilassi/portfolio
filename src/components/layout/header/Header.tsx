@@ -1,5 +1,7 @@
 import { HomeLogo } from "components/common/buttons";
 import st from "components/layout/header/header.module.scss";
+// import { styled } from "../box";
+// import { NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -15,15 +17,9 @@ export default function Header() {
 
 // function Menu() {
 //   return (
-//     <Nav
-//       display="flex"
-//       gap="15%"
-//       justifyContent="center"
-//       border="solid 1px"
-//       width="80%"
-//     >
-//       <NavLink to="about">Home</NavLink>
-//       <NavLink to="contact">Contact</NavLink>
+//     <Nav display="flex" gap="15%" justifyContent="center" width="80%">
+//       <NavLink to="/home/about">Home</NavLink>
+//       <NavLink to="/home/contact">Contact</NavLink>
 //       <NavLink to="/blog">Blog</NavLink>
 //       <NavLink to="/resume">Resume</NavLink>
 //     </Nav>
