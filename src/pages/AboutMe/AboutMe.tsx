@@ -9,7 +9,7 @@ export default function AboutMe() {
       <div className={st.textBox}>
         <div className={st.greeting}> Hi there! I'm Youssef.</div>
         <div className={st.openingText}>
-          <span>A web developper with a passion &nbsp;</span>
+          <span>A web developer with a passion &nbsp;</span>
           <span>
             for <Typewriter /> development.
           </span>

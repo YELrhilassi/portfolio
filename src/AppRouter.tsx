@@ -6,7 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 // Pages
-import { HomeLayout } from "components/layout/pagesLayout";
+import { AppLayout } from "components/layout/pagesLayout";
 import { Home, Welcome } from "pages";
 import ErrorPage from "pages/ErrorPage";
 import { loadSection } from "loaders/sectionsLoader";
@@ -20,9 +20,9 @@ export default function AppRouter() {
 
 function createRoutes() {
   return createRoutesFromElements(
-    <Route path="/" errorElement={<ErrorPage />}>
+    <Route path="/" element={<AppLayout />} errorElement={<ErrorPage />}>
       <Route index element={<Welcome />} />
-      <Route path="/home" element={<HomeLayout />}>
+      <Route path="home">
         <Route index element={<Navigate to="about" replace />} />
         <Route
           path=":section"
@@ -31,6 +31,7 @@ function createRoutes() {
           loader={loadSection}
         />
       </Route>
+      <Route path="blog" />
     </Route>
   );
 }

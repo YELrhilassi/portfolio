@@ -17,4 +17,6 @@ export interface InitStyles extends CSS.Properties {
   desktop?: CSS.Properties;
 }
 
-export type ParentDiv = { children: JSX.Element | JSX.Element[] };
+export type ParentDiv = {
+  children: JSX.Element | JSX.Element[];
+};
