@@ -17,18 +17,12 @@ export default function AppLayout() {
 
   return (
     <Page>
-      <LayoutHeader {...{ isRoot }} />
+      <HeaderBox {...{ isRoot }}>
+        <Header />
+      </HeaderBox>
       <ContentBox>
         <Outlet />
       </ContentBox>
     </Page>
   );
-}
-
-function LayoutHeader({ isRoot }: any) {
-  return !isRoot ? (
-    <HeaderBox>
-      <Header />
-    </HeaderBox>
-  ) : null;
 }

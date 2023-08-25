@@ -20,3 +20,5 @@ export interface InitStyles extends CSS.Properties {
 export type ParentDiv = {
   children: JSX.Element | JSX.Element[];
 };
+
+export type HeaderBoxProps = ParentDiv & { isRoot?: boolean };

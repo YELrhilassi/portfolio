@@ -5,9 +5,8 @@ import { NavLink } from "react-router-dom";
 import { useFadeIn } from "hooks";
 
 export default function Header() {
-  const fadein = useFadeIn();
   return (
-    <div className={`${st.headerBody} ${fadein}`}>
+    <div className={`${st.headerBody} `}>
       <div className={st.headerLogo}>
         <HomeLogo />
       </div>

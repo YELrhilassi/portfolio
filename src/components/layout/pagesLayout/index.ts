@@ -1,4 +1,4 @@
 import WelcomeLayout from "./welcomeLayout/WelcomeLayout";
-import AppLayout from "./homeLayout/HomeLayout";
+import AppLayout from "./AppLayout/AppLayout";
 
 export { AppLayout, WelcomeLayout };

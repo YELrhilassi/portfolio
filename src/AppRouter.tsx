@@ -6,9 +6,8 @@ import {
   Navigate,
 } from "react-router-dom";
 // Pages
+import { ErrorPage, Home, Welcome } from "pages";
 import { AppLayout } from "components/layout/pagesLayout";
-import { Home, Welcome } from "pages";
-import ErrorPage from "pages/ErrorPage";
 import { loadSection } from "loaders/sectionsLoader";
 import ErrorBoundary from "components/layout/errorBoundary";
 
