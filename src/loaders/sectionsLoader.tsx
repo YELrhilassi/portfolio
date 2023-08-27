@@ -1,4 +1,4 @@
-import { AboutMe, CodeSnippet } from "pages";
+import { AboutMe } from "pages";
 import { Section } from "./loadersTypes";
 import { json } from "react-router-dom";
 
@@ -7,11 +7,6 @@ const homeSections: Section[] = [
     url: "about",
     name: "About Me",
     element: () => <AboutMe />,
-  },
-  {
-    url: "codesnippet",
-    name: "Contact",
-    element: () => <CodeSnippet />,
   },
 ];
 

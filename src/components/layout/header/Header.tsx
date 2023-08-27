@@ -1,8 +1,7 @@
+import { NavLink } from "react-router-dom";
 import { HomeLogo } from "components/common/buttons";
 import st from "components/layout/header/header.module.scss";
-import { styled } from "../box";
-import { NavLink } from "react-router-dom";
-import { useFadeIn } from "hooks";
+import { NavLinkProps } from "./types";
 
 export default function Header() {
   return (
@@ -15,15 +14,29 @@ export default function Header() {
   );
 }
 
-const Nav = styled("div");
-
-function Menu() {
+export function Menu() {
   return (
-    <Nav display="flex" gap="15%" justifyContent="center" width="80%">
-      <NavLink to="/home/about">Home</NavLink>
-      <NavLink to="/home/contact">Contact</NavLink>
-      <NavLink to="/blog">Blog</NavLink>
-      <NavLink to="/resume">Resume</NavLink>
-    </Nav>
+    <nav className={st.navMenu}>
+      <MenuNavLink to="/home/about">Home</MenuNavLink>
+      <MenuNavLink to="/home/contact">Contact</MenuNavLink>
+      <MenuNavLink to="home/codesnippet">Snippets</MenuNavLink>
+      <MenuNavLink to="/blog">Blog</MenuNavLink>
+      <MenuNavLink to="/resume">Resume</MenuNavLink>
+    </nav>
+  );
+}
+
+function MenuNavLink({ to, children }: NavLinkProps) {
+  return (
+    <li>
+      <NavLink
+        className={({ isActive }: any) => (isActive ? st.active : "")}
+        {...{ to }}
+      >
+        <span className={st.pseudoElem} />
+        {children}
+        <span className={st.pseudoElem} />
+      </NavLink>
+    </li>
   );
 }

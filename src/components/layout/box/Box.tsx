@@ -35,6 +35,7 @@ export function styled(Tag: string, initStyles?: InitStyles) {
     }
     const elemTag = props.name || "boxDivs";
     const [cssClass] = useStyleElement(elemTag, allStyles);
+
     return (
       <Tag
         ref={box}
