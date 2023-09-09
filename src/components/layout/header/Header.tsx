@@ -19,7 +19,7 @@ export function Menu() {
     <nav className={st.navMenu}>
       <MenuNavLink to="/home/about">Home</MenuNavLink>
       <MenuNavLink to="/home/contact">Contact</MenuNavLink>
-      <MenuNavLink to="home/codesnippet">Snippets</MenuNavLink>
+      <MenuNavLink to="/codesnippet">Snippets</MenuNavLink>
       <MenuNavLink to="/blog">Blog</MenuNavLink>
       <MenuNavLink to="/resume">Resume</MenuNavLink>
     </nav>

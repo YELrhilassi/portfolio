@@ -14,7 +14,7 @@ export default function Home() {
       <PageTagBox>
         <SidePageTag {...{ currentSection }} />
       </PageTagBox>
-      <div className={fadeInClass}>{currentSection.element()}</div>;
+      <div className={fadeInClass}>{currentSection.element()}</div>
     </>
   );
 }
