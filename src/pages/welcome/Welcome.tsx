@@ -8,7 +8,7 @@ export default function Welcome() {
     <WelcomeLayout>
       <AnimatedLogo className={st.logo} width="130px" animationTime={1.5} />
 
-      <ArrowBtnTo className={st.arrowBtn} to="home" />
+      <ArrowBtnTo className={st.arrowBtn} to="/" />
 
       <div className={st.welcomeTxt}>
         <h2>Welcome !</h2>

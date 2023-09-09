@@ -17,9 +17,9 @@ export default function Header() {
 export function Menu() {
   return (
     <nav className={st.navMenu}>
-      <MenuNavLink to="/home/about">Home</MenuNavLink>
-      <MenuNavLink to="/home/contact">Contact</MenuNavLink>
-      <MenuNavLink to="/codesnippet">Snippets</MenuNavLink>
+      <MenuNavLink to="/">Home</MenuNavLink>
+      <MenuNavLink to="/contact">Contact</MenuNavLink>
+      <MenuNavLink to="/snippets">Snippets</MenuNavLink>
       <MenuNavLink to="/blog">Blog</MenuNavLink>
       <MenuNavLink to="/resume">Resume</MenuNavLink>
     </nav>

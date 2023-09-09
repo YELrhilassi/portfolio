@@ -8,16 +8,9 @@ import { Outlet, useLocation } from "react-router-dom";
 //
 
 export default function AppLayout() {
-  const { pathname } = useLocation();
-  const [isRoot, setIsRoot] = useState(() => pathname === "/");
-
-  useEffect(() => {
-    setIsRoot(() => pathname === "/");
-  }, [pathname]);
-
   return (
     <Page>
-      <HeaderBox {...{ isRoot }}>
+      <HeaderBox>
         <Header />
       </HeaderBox>
       <ContentBox>
